@@ -5,7 +5,7 @@ import re	# the regex module
 EMAIL_REGEX = re.compile('^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 
 class User:
-    DB = "pies_schema"          #! change this to set up to new database
+    DB = "racing-zone_schema"
     def __init__( self , data ):
         self.id = data['id']
         self.first_name = data['first_name']
