@@ -69,6 +69,9 @@ class User:
             if user.email == user_form['email']:
                 flash("Email already exists in database!",'register')
                 is_valid = False
+        if len(user_form['phone_number']) < 10:
+            flash("Phone number must be at least 10 numbers.",'register')
+            is_valid = False
         if len(user_form['password']) < 8:
             flash("Password must be at least 8 characters.",'register')
             is_valid = False
