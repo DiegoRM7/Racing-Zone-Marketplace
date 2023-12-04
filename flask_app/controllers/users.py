@@ -5,9 +5,12 @@ from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
 
 @app.route('/')
-def user_login_and_reg():
-    return render_template("login_reg.html")
+def user_register():
+    return render_template("register.html")
 
+@app.route('/login')
+def user_login():
+    return render_template("login.html")
 
 @app.route('/register/user', methods=["POST"])
 def create_user():
@@ -20,12 +23,13 @@ def create_user():
         "first_name": request.form["first_name"],
         "last_name": request.form["last_name"],
         "email": request.form["email"],
+        "phone_number": request.form["phone_number"],
         "password": pw_hash
     }
     session['int_registered_user'] = User.save(data)
-    return redirect('/')
+    return redirect('/login')
 
-@app.route('/login', methods=['POST'])
+@app.route('/login/user', methods=['POST'])
 def login():
     data = {'email': request.form['email']}
     user_in_db = User.get_by_email(data)
@@ -36,9 +40,9 @@ def login():
         flash("Invalid Email/Password",'login')
         return redirect('/')
     session['int_registered_user'] = user_in_db.id
-    return redirect('/dashboard')
+    return redirect('/login')
 
 @app.route('/logout')
 def logout():
     session.clear()
-    return redirect('/')
+    return redirect('/login')
