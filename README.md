@@ -3,7 +3,7 @@
   * Email: <a href="diego1millan@gmail.com">Diego1millan@gmail.com</a>
   * GitHub repo link: <a href="https://github.com/DiegoRM7/Racing-Zone-Marketplace">Racing-Zone-Marketplace</a>
 
-# Project
+# Project Name:
 <h1 align="center">Racing Zone Marketplace</h1>
 
 ### Description:
