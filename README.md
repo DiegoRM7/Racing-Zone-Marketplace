@@ -57,12 +57,13 @@
       * Selling price (would show recommended selling price filled)
       * AFTER MVP: Location: integrate map data api to show where the vehicle is located (views details page).
 
-## Todo's List:
+## Todo's List / Documentation:
   - [x] FE & BE for register page
   - [x] FE & BE for login page
   - [x] connect login/register pages to mySQL DB
   - [x] Add .gitignore file (with only python selected)
-  - [ ] Create FE Home/Dashboard Page (no vehicle data on page)
+  - [x] Update .gitignore file (added Flask to selection)
+  - [x] Create FE Home/Dashboard Page (no vehicle data from DB on page)
   - [ ] Create BE Home/Dashboard Page
   - [ ] Create FE Create Listing Page (everything implemented so that it can be populated on the Home page right away)
   - [ ] Create BE for create listing (to connect to Home page)
@@ -70,6 +71,7 @@
   - [ ] Create BE for update listing
   - [ ] Create Account & Garage page FE
   - [ ] Create  BE for Account & Garage
+  - [ ] Add bootstrap hover effect to nav links on top right
 
 # Product Backlog Features :
   * Users details page displayed to other users wanting to connect/chat
