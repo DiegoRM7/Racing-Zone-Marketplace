@@ -65,11 +65,11 @@
   - [x] Update .gitignore file (added Flask to selection)
   - [x] Create MVP FE Home/Dashboard Page (no vehicle data from DB on page)
   - [x] Fix FE Home/Dashboard Page spacing between listing cards
-  - [ ] Create BE Home/Dashboard Page
+  - [ ] Create BE Home/Dashboard Page (to connect to DB of saved object cars to retrieve images also)
   - [x] Create MVP FE Create Listing Page
-  - [ ] Create BE for create listing (DB connected and BE updated to populated on the Home page right away)
+  - [x] Create BE for create listing (make sure it can save to database using medium BLOB)
   - [ ] Create Update Listing page (everything implemented)
-  - [ ] Create BE for update listing
+  - [ ] Create BE for update listing (DB is able to be queried to update)
   - [ ] Create Account & Garage page FE
   - [ ] Create  BE for Account & Garage
   - [ ] Add bootstrap hover effect to nav links on top right
