@@ -4,7 +4,7 @@
   * GitHub repo link: <a href="https://github.com/DiegoRM7/Racing-Zone-Marketplace">Racing-Zone-Marketplace</a>
 
 # Project
-<h1 align="center">Name: Recing Zone Marketplace</h1>
+<h1 align="center">Racing Zone Marketplace</h1>
 
 ### Description:
 > Marketplace to post a sports or super car to sell or buy one at the current sellers marketplace to add to your garage. Inspiration was from a game called Gran Turismo where we used to not be able to have a marketplace to sell or trade our cars even when we customized them.
