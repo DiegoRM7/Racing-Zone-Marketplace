@@ -13,14 +13,14 @@
             <h1 class="col-6 text-start fw-bold top-title">Create Listing!</h1>
             <div class="col-6 nav-pills d-md-inline-flex justify-content-end">
                 <a href="/home" class="btn btn-outline-dark rounded-0 shadow bg-white text-black fw-bold px-3">Home</a>
-                <a href="/create/listing" class="btn btn-outline-dark rounded-0 shadow bg-primary-subtle active text-black fw-bold px-3">Create Listing</a>
+                <a href="/listing/create" class="btn btn-outline-dark rounded-0 shadow bg-primary-subtle active text-black fw-bold px-3">Create Listing</a>
                 <a href="/account_&_garage" class="btn btn-outline-dark rounded-0 shadow bg-white text-black fw-bold px-3">Account & Garage</a>
             </div>
         </nav>
         <form class="text-black" action="/process/create/listing" method="post">
             <div class="row">
                 <div class="col-md-4">
-                    <div class="p-3 bg-opacity-75 bg-light shadow">
+                    <div class="p-3 bg-opacity-75 bg-light border-1 border-dark-subtle border shadow">
                         <h3 class="h3 text-center">Listing Details:</h3>
                         {% with messages = get_flashed_messages(category_filter=["create_pie"]) %}
                         {% if messages %}
@@ -47,7 +47,7 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="p-3 bg-opacity-75 bg-light shadow">
+                    <div class="p-3 bg-opacity-75 bg-light border-1 border-dark-subtle border shadow">
                         <div class="text-center justify-content-center row">
                             <img src="static\corvette_img.jpg" alt="image of car" class="w-75 mt-3 card-img bg-danger">
                             <input class="form-control w-75 mt-3" type="file" id="avatar" name="avatar" accept=".png, .jpg, .jpeg" placeholder="Choose a photo for your car:">
@@ -69,7 +69,7 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="p-3 bg-opacity-75 bg-light shadow">
+                    <div class="p-3 bg-opacity-75 bg-light border-1 border-dark-subtle border shadow">
                         <h3 class="h3 text-center">Car Details:</h3>
                         <div class=" input-group-text border-0 bg-transparent text-dark fw-semibold">
                             <label class="col-6 text-start" for="year">Year: </label>                  <!-- todo: need to find a way to make the form text inputs to align to the end of the div -->
@@ -89,11 +89,11 @@
                         </div>
                         <div class=" input-group-text border-0 bg-transparent text-dark fw-semibold">
                             <label class="col-6 text-start" for="horsepower">Horsepower: </label>
-                            <input class="form-control rounded-2 ms-2 border-black" type="text" name="horsepower" id="horsepower">
+                            <input class="form-control rounded-2 ms-2 border-black" type="number" name="horsepower" id="horsepower">
                         </div>
                         <div class=" input-group-text border-0 bg-transparent text-dark fw-semibold">
                             <label class="col-6 text-start" for="weight">Weight: </label>
-                            <input class="form-control rounded-2 ms-2 border-black" type="text" name="weight" id="weight">
+                            <input class="form-control rounded-2 ms-2 border-black" type="number" name="weight" id="weight">
                         </div>
                     </div>
                 </div>

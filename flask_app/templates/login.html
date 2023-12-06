@@ -27,6 +27,16 @@
                 <div class="row mt-5 pt-3">
                     <h1 class="col-10 text-success">Login</h1>
                 </div>
+                {% with messages = get_flashed_messages(category_filter=["no_session"]) %}        <!--flashes for error on register inputs-->
+                {% if messages %}
+                <div class="p-2 my-3 rounded bg-danger-subtle bg-opacity-75 text-center fw-semibold flashes">
+                    {% for message in messages %}
+                    <p class="py-1 text-danger-emphasis">{{ message }}</p>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                {% endwith %}
+                
                 {% with messages = get_flashed_messages(category_filter=["login"]) %}
                     {% if messages %}
                     <div class="p-3 my-3 rounded bg-danger-subtle bg-opacity-75 fw-semibold flashes">

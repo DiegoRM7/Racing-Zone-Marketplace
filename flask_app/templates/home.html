@@ -10,10 +10,10 @@
 <body>
     <div class="container mx-auto my-auto px-5 pb-3 pt-3">
         <nav class="nav-bar row align-items-center mb-4">
-            <h1 class="col-6 text-start fw-bold top-title">Welcome { user.name }!</h1>
+            <h1 class="col-6 text-start fw-bold top-title">Welcome {{session['signed_in_user_name']}} !</h1>
             <div class="col-6 d-md-inline-flex justify-content-end">
                     <a href="/home" class="btn btn-outline-dark rounded-0 shadow bg-primary-subtle text-black fw-bold px-3">Home</a>
-                    <a href="/create/listing" class="btn btn-outline-dark rounded-0 shadow bg-white text-black fw-bold px-3">Create Listing</a>
+                    <a href="/listing/create" class="btn btn-outline-dark rounded-0 shadow bg-white text-black fw-bold px-3">Create Listing</a>
                     <a href="/account_&_garage" class="btn btn-outline-dark rounded-0 shadow bg-white text-black fw-bold px-3">Account & Garage</a>
             </div>
         </nav>
@@ -21,17 +21,18 @@
         <div class="row flex-md-wrap">
             <!-- ill add a jinja2 for loop here to repeat the process for the rest of the objects -->
             {% for i in range(5) %}
-            <div class="card col-md-3 border mb-3 p-2 border-black bg-dark-subtle">
-                <img src="static\corvette_img.jpg" alt="image of car" class="card-img-top bg-danger text-center">
-                <div class="card-body">
-                    <h5 class="mt-1 text-center"> {user.car.price$$$$} </h5>
-                    <h5 class="mt-1 text-center"> {user.car.name} </h5>
-                    <p class="mt-2 card-text">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Placeat explicabo, deserunt, vitae architecto laborum, sunt dolores nemo animi accusantium aliquam odit rerum.
-                    </p>
+            <div class="col-md-3">
+                <div class="p-3 mb-3 card bg-opacity-75 bg-light shadow border-1 border-dark-subtle border">
+                    <img src="static\corvette_img.jpg" alt="image of car" class="card-img-top bg-danger text-center">
+                    <div class="card-body">
+                        <h5 class="mt-1 text-center"> {user.car.price$$$$} </h5>
+                        <h5 class="mt-1 text-center"> {user.car.name} </h5>
+                        <p class="mt-2 card-text">
+                            Placeat explicabo, deserunt, vitae architecto laborum.
+                        </p>
+                    </div>
+                    <a class="mt-2 px-5 fw-bold card-footer btn bg-gradient btn-success bg-success rounded" href="/view/listing">View</a>
                 </div>
-                <a class="mt-2 px-5 fw-bold card-footer btn bg-gradient btn-success bg-success rounded" href="/view/listing">View</a>
             </div>
             {% endfor %}
         </div>

@@ -42,14 +42,6 @@ def login():
     session['int_registered_user'] = user_in_db.id
     return redirect('/home')
 
-@app.route('/home')
-def home_page():
-    return render_template("home.html")
-
-@app.route('/create/listing')
-def create_listing_page():
-    return render_template("create_listing.html")
-
 @app.route('/logout')
 def logout():
     session.clear()

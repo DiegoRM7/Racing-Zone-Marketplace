@@ -63,10 +63,11 @@
   - [x] connect login/register pages to mySQL DB
   - [x] Add .gitignore file (with only python selected)
   - [x] Update .gitignore file (added Flask to selection)
-  - [x] Create FE Home/Dashboard Page (no vehicle data from DB on page)
+  - [x] Create MVP FE Home/Dashboard Page (no vehicle data from DB on page)
+  - [x] Fix FE Home/Dashboard Page spacing between listing cards
   - [ ] Create BE Home/Dashboard Page
-  - [ ] Create FE Create Listing Page (everything implemented so that it can be populated on the Home page right away)
-  - [ ] Create BE for create listing (to connect to Home page)
+  - [x] Create MVP FE Create Listing Page
+  - [ ] Create BE for create listing (DB connected and BE updated to populated on the Home page right away)
   - [ ] Create Update Listing page (everything implemented)
   - [ ] Create BE for update listing
   - [ ] Create Account & Garage page FE
