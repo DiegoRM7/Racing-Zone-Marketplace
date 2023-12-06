@@ -3,7 +3,8 @@
   * Email: <a href="diego1millan@gmail.com">Diego1millan@gmail.com</a>
   * GitHub repo link: <a href="https://github.com/DiegoRM7/Racing-Zone-Marketplace">Racing-Zone-Marketplace</a>
 
-<h1 align="center">Project Name: Recing Zone Marketplace</h1>
+# Project
+<h1 align="center">Name: Recing Zone Marketplace</h1>
 
 ### Description:
 > Marketplace to post a sports or super car to sell or buy one at the current sellers marketplace to add to your garage. Inspiration was from a game called Gran Turismo where we used to not be able to have a marketplace to sell or trade our cars even when we customized them.
@@ -19,7 +20,7 @@
   * Cars data API
   * AFTER MVP: Map data API to view where the car is at when viewing the cars details page
 
-### Feature list / Page’s:
+## Feature list / Page’s:
   * Have a page to register an account and another page to login to an existing account.
   
   * Users start with a certain amount of money in order to buy straight from the marketplace if they don’t want to create a car.
@@ -55,6 +56,20 @@
       * Contact info
       * Selling price (would show recommended selling price filled)
       * AFTER MVP: Location: integrate map data api to show where the vehicle is located (views details page).
+
+## Todo's List:
+  - [x] FE & BE for register page
+  - [x] FE & BE for login page
+  - [x] connect login/register pages to mySQL DB
+  - [x] Add .gitignore file (with only python selected)
+  - [ ] Create FE Home/Dashboard Page (no vehicle data on page)
+  - [ ] Create BE Home/Dashboard Page
+  - [ ] Create FE Create Listing Page (everything implemented so that it can be populated on the Home page right away)
+  - [ ] Create BE for create listing (to connect to Home page)
+  - [ ] Create Update Listing page (everything implemented)
+  - [ ] Create BE for update listing
+  - [ ] Create Account & Garage page FE
+  - [ ] Create  BE for Account & Garage
 
 # Product Backlog Features :
   * Users details page displayed to other users wanting to connect/chat
