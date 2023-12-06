@@ -13,6 +13,10 @@ class Car:
         self.transmission = data['transmission']
         self.horsepower = data['horsepower']
         self.weight = data['weight']
+        self.image_path = data.get('image_path', None)
+        self.price = data['price']
+        self.title = data['title']
+        self.description = data['description']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
         self.creator = None
@@ -21,7 +25,7 @@ class Car:
     def save(cls, data):
         query = """
                 INSERT INTO cars (user_id, year, make, model, transmission, horsepower, weight, image_path, price, title, description)
-                VALUES (%(user_id)s, %(year)s, %(make)s, %(model)s, %(transmission)s, %(horsepower)s, %(weight)s. %(image_path)s,
+                VALUES (%(user_id)s, %(year)s, %(make)s, %(model)s, %(transmission)s, %(horsepower)s, %(weight)s, %(image_path)s,
                         %(price)s, %(title)s, %(description)s);
                 """
         return connectToMySQL(cls.DB).query_db(query, data)
