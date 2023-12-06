@@ -17,7 +17,7 @@
                 <a href="/account_&_garage" class="btn btn-outline-dark rounded-0 shadow bg-white text-black fw-bold px-3">Account & Garage</a>
             </div>
         </nav>
-        <form class="text-black" action="/process/create/listing" method="post">
+        <form class="text-black" action="/listing/create/process" method="post">
             <div class="row">
                 <div class="col-md-4">
                     <div class="p-3 bg-opacity-75 bg-light border-1 border-dark-subtle border shadow">
@@ -49,13 +49,15 @@
                 <div class="col-md-4">
                     <div class="p-3 bg-opacity-75 bg-light border-1 border-dark-subtle border shadow">
                         <div class="text-center justify-content-center row">
-                            <img src="static\corvette_img.jpg" alt="image of car" class="w-75 mt-3 card-img bg-danger">
-                            <input class="form-control w-75 mt-3" type="file" id="avatar" name="avatar" accept=".png, .jpg, .jpeg" placeholder="Choose a photo for your car:">
+                            <img src="static\corvette_img.jpg" alt="image of car" for="image_path" class="w-75 mt-3 input-image bg-danger">
+                            <input class="form-control w-75 mt-3" type="file" id="image_path" name="image_path" accept=".png, .jpg, .jpeg" placeholder="Choose a photo for your car:">
                             <input class="mt-2 px-5 fw-bold btn bg-gradient btn-success bg-success text-white rounded w-50" type="submit" value="Create"></input>
                         </div>
-                        <h5 class="mt-3 text-center">Seller Contact Details:</h5>
+                        <!-- ? going to add this later once i figure out how to set it up in the model
+                            ? to save both the user data and car data at the same time -->
+                        <!-- <h5 class="mt-3 text-center">Seller Contact Details:</h5>
                         <div class=" input-group-text border-0 bg-transparent text-dark fw-semibold">
-                            <label class="col-6 text-start" for="seller_name">Seller Name: </label>                  <!-- todo: need to find a way to make the form text inputs to align to the end of the div -->
+                            <label class="col-6 text-start" for="seller_name">Seller Name: </label>
                             <input class="form-control rounded-2 ms-2 border-black" id="seller_name" type="text" name="seller_name">
                         </div>
                         <div class=" input-group-text border-0 bg-transparent text-dark fw-semibold">
@@ -65,7 +67,7 @@
                         <div class=" input-group-text border-0 bg-transparent text-dark fw-semibold">
                             <label class="col-6 text-start" for="email">Email: </label>
                             <input class="form-control rounded-2 ms-2 border-black" type="text" name="email" id="email">
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="col-md-4">
