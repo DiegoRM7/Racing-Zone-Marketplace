@@ -20,15 +20,15 @@
         <p class="text-primary-emphasis fw-bolder top-title">Current Credits $100,000</p>
         <div class="row flex-md-wrap">
             <!-- ill add a jinja2 for loop here to repeat the process for the rest of the objects -->
-            {% for i in range(5) %}
+            {% for car in cars %}
             <div class="col-md-3">
                 <div class="p-3 mb-3 card bg-opacity-75 bg-light shadow border-1 border-dark-subtle border">
-                    <img src="static\corvette_img.jpg" alt="image of car" class="card-img-top bg-danger text-center">
+                    <img src="path:{{ car.image_path }}" alt="{{ car.image_path }}" class="card-img-top bg-danger text-center">
                     <div class="card-body">
-                        <h5 class="mt-1 text-center"> {user.car.price$$$$} </h5>
-                        <h5 class="mt-1 text-center"> {user.car.name} </h5>
+                        <h5 class="mt-1 text-center">{{ car.price }}</h5>
+                        <h5 class="mt-1 text-center">{{ car.make }} {{ car.model }}</h5>
                         <p class="mt-2 card-text">
-                            Placeat explicabo, deserunt, vitae architecto laborum.
+                            {{ car.description }}
                         </p>
                     </div>
                     <a class="mt-2 px-5 fw-bold card-footer btn bg-gradient btn-success bg-success rounded" href="/view/listing">View</a>

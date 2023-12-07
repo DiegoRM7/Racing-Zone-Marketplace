@@ -29,7 +29,7 @@
   
   * A create page to create a car post that the user is selling and edit info from the selling stand point.
 
-  * You pick a sports / supercar to create from API: each have a certain amount of hp and weight  
+  * You pick a sports / super car to create from API: each have a certain amount of hp and weight  
     * Mclaren
     * Lamborghini
     * Ferrari
@@ -65,14 +65,16 @@
   - [x] Update .gitignore file (added Flask to selection)
   - [x] Create MVP FE Home/Dashboard Page (no vehicle data from DB on page)
   - [x] Fix FE Home/Dashboard Page spacing between listing cards
-  - [ ] Create BE Home/Dashboard Page (to connect to DB of saved object cars to retrieve images also)
+  - [x] Create BE Home/Dashboard Page (to connect to DB of saved object cars)
   - [x] Create MVP FE Create Listing Page
   - [x] Create BE for create listing (make sure it can save to database using medium BLOB)
   - [ ] Create Update Listing page (everything implemented)
   - [ ] Create BE for update listing (DB is able to be queried to update)
   - [ ] Create Account & Garage page FE
-  - [ ] Create  BE for Account & Garage
+  - [ ] Create BE for Account & Garage
+  - [ ] Update FE of Home page to have jinja format the price text to include $$$ sign and comas ,,, after 3 digits
   - [ ] Add bootstrap hover effect to nav links on top right
+  - [ ] Update Home BackEnd to be able to retrieve/show the mediumBlob images in the DB
 
 # Product Backlog Features :
   * Users details page displayed to other users wanting to connect/chat

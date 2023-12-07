@@ -53,7 +53,7 @@ class Car:
             }
             car.creator = User(user_data)
             all_cars.append(car)
-        print(f"These are all the car objects:\n{all_cars}")
+        # print(f"These are all the car objects:\n{all_cars}") #? to show the objects being populated
         return all_cars
 
     # @classmethod
