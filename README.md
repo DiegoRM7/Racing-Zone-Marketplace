@@ -68,13 +68,15 @@
   - [x] Create BE Home/Dashboard Page (to connect to DB of saved object cars)
   - [x] Create MVP FE Create Listing Page
   - [x] Create BE for create listing (make sure it can save to database using medium BLOB)
+  - [x] Create Account & Garage page FE
+  - [ ] Set Up a Logout button on account page
+  - [ ] Create BE for Account & Garage
   - [ ] Create Update Listing page (everything implemented)
   - [ ] Create BE for update listing (DB is able to be queried to update)
-  - [ ] Create Account & Garage page FE
-  - [ ] Create BE for Account & Garage
   - [ ] Update FE of Home page to have jinja format the price text to include $$$ sign and comas ,,, after 3 digits
   - [ ] Add bootstrap hover effect to nav links on top right
-  - [x] Update Home BackEnd to be able to retrieve/show the mediumBlob images in the DB
+  - [ ] Figure out how to correctly deploy app into github pages (starting on index.html page)
+  - [ ] Update Home BackEnd to be able to retrieve/show the mediumBlob images in the DB
 
 # Product Backlog Features :
   * Users details page displayed to other users wanting to connect/chat
