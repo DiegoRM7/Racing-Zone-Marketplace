@@ -74,7 +74,7 @@
   - [ ] Create BE for Account & Garage
   - [ ] Update FE of Home page to have jinja format the price text to include $$$ sign and comas ,,, after 3 digits
   - [ ] Add bootstrap hover effect to nav links on top right
-  - [ ] Update Home BackEnd to be able to retrieve/show the mediumBlob images in the DB
+  - [x] Update Home BackEnd to be able to retrieve/show the mediumBlob images in the DB
 
 # Product Backlog Features :
   * Users details page displayed to other users wanting to connect/chat
