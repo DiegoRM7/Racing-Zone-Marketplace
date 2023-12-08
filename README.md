@@ -75,8 +75,12 @@
   - [x] Create Back End for View Listing Page (missing to retrieve image from DB)
   - [x] Update Back End for View Listing Page: the jinja2 if statement to not show edit or delete buttons to people that aren't logged in.
   - [ ] Update BUG in Account & Garage page BE to make query start with the user data instead of the car data (reversed) so that user data can still show even if they don't have a car in garage.
+  - [ ] Create Validations for all the inputs of creating a listing
   - [ ] Create Update Listing page (everything implemented)
   - [ ] Create BE for update listing (DB is able to be queried to update)
+
+                        BACKLOG FEATURE'S TODO'S
+
   - [ ] Create FE Page for Editing User Profile Data (accessed by the acc/garage page button)
   - [ ] Update FE of Home page to have jinja format the price text to include $$$ sign and comas ,,, after 3 digits
   - [ ] Add bootstrap hover-shadow effect just created into all buttons and cards
