@@ -71,9 +71,13 @@
   - [x] Create Account & Garage page FE
   - [x] Set Up a Logout button on account page
   - [x] Create BE for Account & Garage
+  - [x] Create Front End for View Listing Page
+  - [x] Create Back End for View Listing Page (missing to retrieve image from DB)
+  - [x] Update Back End for View Listing Page: the jinja2 if statement to not show edit or delete buttons to people that aren't logged in.
   - [ ] Update BUG in Account & Garage page BE to make query start with the user data instead of the car data (reversed) so that user data can still show even if they don't have a car in garage.
   - [ ] Create Update Listing page (everything implemented)
   - [ ] Create BE for update listing (DB is able to be queried to update)
+  - [ ] Create FE Page for Editing User Profile Data (accessed by the acc/garage page button)
   - [ ] Update FE of Home page to have jinja format the price text to include $$$ sign and comas ,,, after 3 digits
   - [ ] Add bootstrap hover-shadow effect just created into all buttons and cards
   - [ ] Figure out how to correctly deploy app into github pages (starting on index.html page)

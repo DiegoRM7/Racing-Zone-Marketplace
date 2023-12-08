@@ -87,50 +87,51 @@ class Car:
     #             is_valid = False
     #     return is_valid
 
-    # @staticmethod
-    # def validate_car_deletion_through_url(id):
-    #     is_valid = True
-    #     for one_car in car.get_all():
-    #         if 'int_registered_user' != one_car.user_id:
-    #             is_valid = False
-    #     return is_valid
+    @staticmethod
+    def validate_car_deletion_through_url(id):
+        is_valid = True
+        car = Car.get_one_car_by_id_w_user(id)
+        if 'int_registered_user' != car.user_id:
+            is_valid = False
+        return is_valid
 
-    # @classmethod
-    # def get_all(cls):
-    #     query = "SELECT * FROM cars;"
-    #     results = connectToMySQL(cls.DB).query_db(query)
-    #     all_cars = []
-    #     for one_car in results:
-    #         all_cars.append(cls(one_car))
-    #     return all_cars
+    @classmethod
+    def get_all(cls):
+        query = "SELECT * FROM cars;"
+        results = connectToMySQL(cls.DB).query_db(query)
+        all_cars = []
+        for one_car in results:
+            all_cars.append(cls(one_car))
+        return all_cars
 
-    # @classmethod                           
-    # def get_one_car_by_id_w_user(cls, id):      
-    #     query = """
-    #             SELECT * FROM cars JOIN users
-    #             ON cars.user_id = users.id WHERE cars.id = %(id)s;
-    #             """
-    #     results = connectToMySQL(cls.DB).query_db(query, {"id": id})
-    #     print(results[0])
-    #     car = cls(results[0])
-    #     user_data = {
-    #         "id":["users.id"],
-    #         "first_name":["first_name"],
-    #         "last_name":["last_name"],
-    #         "email":["email"],
-    #         "created_at":["users.created_at"],
-    #         "updated_at":["users.updated_at"]
-    #         }
-    #     car.creator = User(user_data)
-    #     return car
+    @classmethod                           
+    def get_one_car_by_id_w_user(cls, id):      
+        query = """
+                SELECT * FROM cars JOIN users
+                ON cars.user_id = users.id WHERE cars.id = %(id)s;
+                """
+        results = connectToMySQL(cls.DB).query_db(query, {"id": id})
+        print(results[0])
+        car = cls(results[0])
+        user_data = {
+            "id":["users.id"],
+            "first_name":["first_name"],
+            "last_name":["last_name"],
+            "email":["email"],
+            "phone_number":["phone_number"],
+            "created_at":["users.created_at"],
+            "updated_at":["users.updated_at"]
+            }
+        car.creator = User(user_data)
+        return car
     
-    # @classmethod
-    # def delete(cls, id):
-    #     query = """
-    #             DELETE FROM cars
-    #             WHERE id = %(id)s;
-    #             """
-    #     return connectToMySQL(cls.DB).query_db(query, {"id":id})
+    @classmethod
+    def delete(cls, id):
+        query = """
+                DELETE FROM cars
+                WHERE id = %(id)s;
+                """
+        return connectToMySQL(cls.DB).query_db(query, {"id":id})
     
     @classmethod
     def get_all_cars_one_user(cls, id):

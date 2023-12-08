@@ -12,9 +12,9 @@
         <nav class="nav-bar row align-items-center mb-4">
             <h1 class="col-6 text-start fw-bold top-title">Welcome {{session['signed_in_user_name']}} !</h1>
             <div class="col-6 d-md-inline-flex justify-content-end">
-                    <a href="/home" class="btn btn-outline-dark rounded-0 shadow bg-primary-subtle text-black fw-bold px-3">Home</a>
-                    <a href="/listing/create" class="btn btn-outline-dark rounded-0 shadow bg-white text-black fw-bold px-3">Create Listing</a>
-                    <a href="/account_and_garage" class="btn btn-outline-dark rounded-0 shadow bg-white text-black fw-bold px-3">Account & Garage</a>
+                    <a href="/home" class="btn btn-outline-dark rounded-0 hover-shadow bg-primary-subtle text-black fw-bold px-3">Home</a>
+                    <a href="/listing/create" class="btn btn-outline-dark rounded-0 hover-shadow bg-white text-black fw-bold px-3">Create Listing</a>
+                    <a href="/account_and_garage" class="btn btn-outline-dark rounded-0 hover-shadow bg-white text-black fw-bold px-3">Account & Garage</a>
             </div>
         </nav>
         <p class="text-primary-emphasis fw-bolder top-title">Current Credits $100,000</p>
@@ -22,7 +22,7 @@
             <!-- ill add a jinja2 for loop here to repeat the process for the rest of the objects -->
             {% for car in cars %}
             <div class="col-md-3">
-                <div class="p-3 mb-3 card bg-opacity-75 bg-light shadow border-1 border-dark-subtle border">
+                <div class="p-3 mb-3 card bg-opacity-75 bg-light hover-shadow border-1 border-dark-subtle border">
                     <img src="path:{{ car.image_path }}" alt="{{ car.image_path }}" class="card-img-top bg-danger text-center">
                     <div class="card-body">
                         <h5 class="mt-1">{{ car.price }}</h5>
@@ -31,7 +31,7 @@
                             {{ car.description }}
                         </p>
                     </div>
-                    <a class="mt-2 px-5 fw-bold card-footer btn bg-gradient btn-success bg-success rounded" href="/view/listing">View</a>
+                    <a class="mt-2 px-5 fw-bold card-footer btn bg-gradient btn-success hover-shadow bg-success rounded" href="/listing/view/{{ car.id }}">View</a>
                 </div>
             </div>
             {% endfor %}

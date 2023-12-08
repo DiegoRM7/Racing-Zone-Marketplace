@@ -41,12 +41,12 @@ def create_listing_process():
     return redirect('/home')
 
 # ? Show one car based on user id
-# @app.route('/pies/<int:id>')
-# def show_one(id):
-#     if 'int_registered_user' not in session:
-#         User.flash_msg_must_login()
-#         return redirect('/')
-#     return render_template('show_pie.html', pies = Pie.get_one_pie_by_id_w_user(id))
+@app.route('/listing/view/<int:id>')
+def show_one(id):
+    if 'int_registered_user' not in session:
+        User.flash_msg_must_login()
+        return redirect('/login')
+    return render_template('view_listing.html', cars = Car.get_one_car_by_id_w_user(id))
 
 # ? edit page for one car by using the user's id
 # @app.route('/pies/edit/<int:id>')
@@ -72,10 +72,11 @@ def create_listing_process():
 #     return redirect('/dashboard')
 
 # ? DELETES CAR DATA based on the car's id
-# @app.route('/pies/delete/<int:id>')
-# def delete(id):
-#     if not Pie.validate_pie_deletion_through_url(id):
-#         print(f"\n\nError! Can't delete pie, its not from your account!!!!!\n\n")
-#         return redirect(f"/dashboard")
-#     Pie.delete(id)
-#     return redirect('/dashboard')
+@app.route('/listing/delete/<int:id>')
+def delete(id):
+    if not Car.validate_car_deletion_through_url(id):
+        print(f"\n\nError! Can't delete car listing, its not from your account!!!!!\n\n")       #! set up later to be a flash or modal message
+        return redirect(f"/account_and_garage")
+    Car.delete(id)
+    print(f"\n\nDeleted the listing from your account!!! Good job!!\n\n")       #! set up later to be a flash or modal message
+    return redirect('/account_and_garage')      # ? flash or modal confirming the listing was deleted
