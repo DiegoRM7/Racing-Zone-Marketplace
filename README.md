@@ -74,6 +74,7 @@
   - [x] Create Front End for View Listing Page
   - [x] Create Back End for View Listing Page (missing to retrieve image from DB)
   - [x] Update Back End for View Listing Page: the jinja2 if statement to not show edit or delete buttons to people that aren't logged in.
+  - [ ] Create jinja if statement to only show purchase button on view listing page if car isn't owned by the viewer.
   - [ ] Update BUG in Account & Garage page BE to make query start with the user data instead of the car data (reversed) so that user data can still show even if they don't have a car in garage.
   - [ ] Create Validations for all the inputs of creating a listing
   - [ ] Create Update Listing page (everything implemented)
@@ -92,7 +93,7 @@
     * Largest purchase from user
     * Description of user
     * Car brands interests of user
-      
+
   * Another page to view one seller's garage and purchase straight from that page and have a rating on the sellers from a 5 star scale. To access it there would be a button named “sellers garage” on each listing details page.
   
   * You can buy another car with that money or buy mods for it that each give a certain number of hp extra. (have tires that have the same hp just different looks so that we could have a update feature for CRUD still)
