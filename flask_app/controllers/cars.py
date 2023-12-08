@@ -17,18 +17,20 @@ def account_and_garage_details():
     if 'int_registered_user' not in session:
         User.flash_msg_must_login()
         return redirect('/login')
-    # ? user_and_cars = one_user_by_id_all_cars()
-    # todo: instead of below, get all the data from user including all cars (like the above function that would query the DB)
-    # user = User.get_by_id(session['int_registered_user'])
-    # session['signed_in_user_name'] = user.first_name + ' ' + user.last_name
-    return render_template("account_and_garage.html")
+    all_cars_of_user = Car.get_all_cars_one_user(session['int_registered_user'])
+    car_counter = 0
+    # loop through the data of cars
+    for i in all_cars_of_user:
+        car_counter += 1
+    print(car_counter)
+    return render_template("account_and_garage.html", all_cars_of_user = all_cars_of_user, car_counter = car_counter)
 
 @app.route('/listing/create')
 def create_listing_page():
     return render_template("create_listing.html")
 
 @app.route('/listing/create/process', methods=["POST"])
-def create_listing():
+def create_listing_process():
     # if not Car.validate_pie(request.form):    # ? later on create a validation of all the fields (there's a lot to validate)
     #     print("---Car could not be created.----\n----Validation gone wrong!----")
     #     return redirect('/dashboard')

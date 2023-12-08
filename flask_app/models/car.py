@@ -133,27 +133,28 @@ class Car:
     #             """
     #     return connectToMySQL(cls.DB).query_db(query, {"id":id})
     
-    # @classmethod
-    # def get_pies_of_one_user(cls, id):
-    #     query = """
-    #             SELECT * FROM pies JOIN users
-    #             ON pies.user_id = users.id
-    #             WHERE users.id = %(id)s;
-    #             """
-    #     results = connectToMySQL(cls.DB).query_db(query, {"id": id})
-    #     all_pies_from_one_user = []
-    #     for row in results:
-    #         pie = cls(row)
-    #         user_data = {
-    #             "id":row["users.id"],
-    #             "first_name":row["first_name"],
-    #             "last_name":row["last_name"],
-    #             "email":row["email"],
-    #             "password":row["password"],
-    #             "created_at":row["users.created_at"],
-    #             "updated_at":row["users.updated_at"]
-    #             }
-    #         pie.creator = User(user_data)
-    #         all_pies_from_one_user.append(pie)
-    #     print(f"These are all the pie objects:\n{all_pies_from_one_user}")
-    #     return all_pies_from_one_user
+    @classmethod
+    def get_all_cars_one_user(cls, id):
+        query = """
+                SELECT * FROM cars JOIN users
+                ON cars.user_id = users.id
+                WHERE users.id = %(id)s;
+                """
+        results = connectToMySQL(cls.DB).query_db(query, {"id": id})
+        all_cars_from_one_user = []
+        for row in results:
+            car = cls(row)
+            user_data = {
+                "id":row["users.id"],
+                "first_name":row["first_name"],
+                "last_name":row["last_name"],
+                "email":row["email"],
+                "phone_number":row["phone_number"],
+                "password":row["password"],
+                "created_at":row["users.created_at"],
+                "updated_at":row["users.updated_at"]
+                }
+            car.creator = User(user_data)
+            all_cars_from_one_user.append(car)
+        print(f"These are all the car objects:\n{all_cars_from_one_user}")
+        return all_cars_from_one_user
