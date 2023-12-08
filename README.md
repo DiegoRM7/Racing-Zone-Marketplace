@@ -69,8 +69,9 @@
   - [x] Create MVP FE Create Listing Page
   - [x] Create BE for create listing (make sure it can save to database using medium BLOB)
   - [x] Create Account & Garage page FE
-  - [ ] Set Up a Logout button on account page
-  - [ ] Create BE for Account & Garage
+  - [x] Set Up a Logout button on account page
+  - [x] Create BE for Account & Garage
+  - [ ] Update BUG in Account & Garage page BE to make query start with the user data instead of the car data (reversed) so that user data can still show even if they don't have a car in garage.
   - [ ] Create Update Listing page (everything implemented)
   - [ ] Create BE for update listing (DB is able to be queried to update)
   - [ ] Update FE of Home page to have jinja format the price text to include $$$ sign and comas ,,, after 3 digits
