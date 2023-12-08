@@ -48,11 +48,13 @@
                     <div class="ms-3">
                         <p>Name: {{ all_cars_of_user[0].creator.first_name }} {{ all_cars_of_user[0].creator.last_name }}</p>
                         <p>Email: {{ all_cars_of_user[0].creator.email }}</p>
+                        <p>Phone Number: {{ all_cars_of_user[0].creator.phone_number }}</p>
                         <p>Password: *************************</p>
                         <p>Amount of Vehicles: {{ car_counter }}</p>
                         <p>Current Amount of credits: {{ all_cars_of_user[0].price }}</p>
                     </div>
                     <a class="mt-2 px-5 fw-bold btn btn-primary rounded bg-gradient bg-primary hover-shadow" href="/account_and_garage">Edit</a>
+                    <a class="mt-2 px-5 fw-bold btn btn-warning rounded bg-gradient bg-warning hover-shadow" href="/logout">Logout</a>
                 </div>
             </div>
         </div>

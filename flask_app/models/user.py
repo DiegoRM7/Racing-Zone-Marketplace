@@ -15,7 +15,7 @@ class User:
         self.password = data.get('password', None)
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
-        self.pies = []
+        self.cars = []
 
     @staticmethod
     def flash_msg_must_login():

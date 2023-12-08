@@ -74,7 +74,7 @@
   - [ ] Create Update Listing page (everything implemented)
   - [ ] Create BE for update listing (DB is able to be queried to update)
   - [ ] Update FE of Home page to have jinja format the price text to include $$$ sign and comas ,,, after 3 digits
-  - [ ] Add bootstrap hover effect to nav links on top right
+  - [ ] Add bootstrap hover-shadow effect just created into all buttons and cards
   - [ ] Figure out how to correctly deploy app into github pages (starting on index.html page)
   - [ ] Update Home BackEnd to be able to retrieve/show the mediumBlob images in the DB
 
