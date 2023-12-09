@@ -11,25 +11,29 @@
 
 <h1 align="center">MVP :</h1>
 
-### Stack:
+### Technology Stack:
   * Python
+  * MySQL
   * Flask
+  * CSS/HTML
+  * Javascript
   * Bootstrap
 
-### **API’s:**
-  * Cars data API
-  * AFTER MVP: Map data API to view where the car is at when viewing the cars details page
+### **API’s (after MVP):**
+  * Cars data API (get universal data about all type of cars that have been made/sold in the US)
+  * Map data API (See in what state/country the car is located when viewing details page)
 
 ## Feature list / Page’s:
   * Have a page to register an account and another page to login to an existing account.
-  
-  * Users start with a certain amount of money in order to buy straight from the marketplace if they don’t want to create a car.
-  
-  * Once bought from the marketplace, money is gone based on the seller's price.
-  
   * A create page to create a car post that the user is selling and edit info from the selling stand point.
-
-  * You pick a sports / super car to create from API: each have a certain amount of hp and weight  
+  * A page that shows the current logged in user’s info (money, name, etc.) and the car that they have in their garage.
+  * A marketplace page displaying all the cars that are being sold at the moment.
+  * An individual car viewing page where when you click on viewing the car through the user's garage or the marketplace then the user can see all the details of the car and the person selling it.
+  * An update page where the user that owns that vehicle can update the info.
+  
+  * (after MVP) Users start with a certain amount of money in order to buy straight from the marketplace if they don’t want to create a car.
+  * (after MVP) Once bought from the marketplace, money is gone based on the seller's price.
+  * (after MVP) You pick a sports / super car to create from API: each have a certain amount of hp and weight  
     * Mclaren
     * Lamborghini
     * Ferrari
@@ -37,11 +41,6 @@
     * Mercedes benz
     * etc…
     * F1 car (nobody could buy until they make enough money for it)
-  
-  * A page that shows the current logged in user’s info (money, name, etc.) and the car that they have in their garage.
-  * A marketplace page displaying all the cars that are being sold at the moment.
-  * An individual car viewing page where when you click on viewing the car through the user's garage or the marketplace then the user can see all the details of the car and the person selling it.
-  * An update page where the user that owns that vehicle can update the info.
 
 
 ### CRUD implementation:
