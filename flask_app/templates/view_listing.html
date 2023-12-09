@@ -13,7 +13,7 @@
             <h1 class="col-6 text-start fw-bold top-title">Listing Details!</h1>
             <div class="col-6 nav-pills d-md-inline-flex justify-content-end">
                 <a href="/home" class="btn btn-outline-dark rounded-0 hover-shadow bg-white text-black fw-bold px-3">Home</a>
-                <a href="/listing/create" class="btn btn-outline-dark rounded-0 hover-shadow bg-primary-subtle active text-black fw-bold px-3">Create Listing</a>
+                <a href="/listing/create" class="btn btn-outline-dark rounded-0 hover-shadow bg-white text-black fw-bold px-3">Create Listing</a>
                 <a href="/account_and_garage" class="btn btn-outline-dark rounded-0 hover-shadow bg-white text-black fw-bold px-3">Account & Garage</a>
             </div>
         </nav>
@@ -26,7 +26,10 @@
                             <p>Price: {{ cars.price }} </p>
                             <p>Title: {{ cars.title }} </p>
                             <p>Description: {{ cars.description }}</p>
+                            <!-- ? Find out backend for purchasing a car, moving the object to be owned by the other user that is buying it, into their garage -->
+                            {% if cars.user_id != session['int_registered_user'] %}
                             <a class="mt-2 px-5 fw-bold btn btn-success rounded bg-gradient bg-success hover-shadow" href="/listing/view/{{ cars.id }}">Purchase</a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
