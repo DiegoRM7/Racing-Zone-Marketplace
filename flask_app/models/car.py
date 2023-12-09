@@ -95,13 +95,23 @@ class Car:
             is_valid = False
         return is_valid
     
-    # ?? method that on PURCHASE of car listing will transfer object from one user to another
-    @staticmethod
-    def purchase_car_listing(id):
-        car = Car.get_one_car_by_id_w_user(id)
+    @classmethod
+    def purchase_car_listing(cls, data):
+        # car = Car.get_one_car_by_id_w_user(id)
         # made a query under this that inputs the id of the user that purchasing^^
         # that will then tell the query to move the object to that user
-        return None
+        query = """
+                UPDATE cars 
+                SET user_id = %(id_of_buyer)s 
+                WHERE id = %(id_of_car_being_bought)s;
+                """
+                # ! example of possible query to run
+                # ? INSERT INTO persons_table SELECT * FROM customer_table WHERE person_name = 'tom';
+                # ? DELETE FROM customer_table WHERE person_name = 'tom';
+        # later on will make a static method/function here/under to change the amount
+        # of credits of the user lower when they purchase a listing
+        return connectToMySQL(cls.DB).query_db(query, data)
+
 
     @classmethod
     def get_all(cls):

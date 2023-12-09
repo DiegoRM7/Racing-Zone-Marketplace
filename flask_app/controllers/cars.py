@@ -48,10 +48,12 @@ def show_one(id):
     return render_template('view_listing.html', cars = Car.get_one_car_by_id_w_user(id))
 
 # ?? Route that on PURCHASE of car listing will transfer object from one user to another
-app.route('/listing/purchase/<int:id>')
-def purchase_process(id):
-    # Car.purchase_car_listing(id)
-    return None
+@app.route('/listing/purchase', methods=["POST"])
+def purchase_process():
+    Car.purchase_car_listing(request.form)
+    print("Car was purchased for $$$$ !!")
+    # another method here that will change the credits of buyer once the transaction/transfer is done.
+    return redirect('/account_and_garage')
 
 # ? edit page for one car by using the user's id
 # @app.route('/pies/edit/<int:id>')

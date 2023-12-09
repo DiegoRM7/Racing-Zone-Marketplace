@@ -75,14 +75,15 @@
   - [x] Create Back End for View Listing Page (missing to retrieve image from DB)
   - [x] Update Back End for View Listing Page: the jinja2 if statement to not show edit or delete buttons to people that aren't logged in.
   - [x] Create Front End jinja if statement for purchase button on view listing page (only show if car isn't owned by the viewer)
-  - [ ] Create Back End for purchase button (move object to user who purchased and alter user's credit amount)
+  - [x] Create Back End for purchase button (move object to user who purchased)
   - [ ] Update BUG in Account & Garage page BE to make query start with the user data instead of the car data (reversed) so that user data can still show even if they don't have a car in garage.
   - [ ] Create Validations for all the inputs of creating a listing
-  - [ ] Create Update Listing page (everything implemented)
-  - [ ] Create BE for update listing (DB is able to be queried to update)
+  - [ ] Create FE Update Listing page (everything implemented)
+  - [ ] Create BE Update listing page (DB is able to be queried to update)
 
                         BACKLOG FEATURE'S TODO'S
 
+  - [ ] Create Back End FEATURE for purchase button (alter user's credit amount based on purchase price of car listing)
   - [ ] Create FE Page for Editing User Profile Data (accessed by the acc/garage page button)
   - [ ] Update FE of Home page to have jinja format the price text to include $$$ sign and comas ,,, after 3 digits
   - [ ] Add bootstrap hover-shadow effect just created into all buttons and cards
@@ -113,3 +114,6 @@
   * Later on make a page where you could have a catalog of races and a percentage of winning each race depending on the ratio of hp/weight for your vehicle. If a user wins a race (based on randomization on the percentage scale) then the user wins a certain amount of money based on the difficulty.
 
   * AJAX & Django in the future???
+
+### Present these features that work:
+  * User can purchase/move ownership of car listings and then the "amount of vehicles" number in account details with change accordingly.
