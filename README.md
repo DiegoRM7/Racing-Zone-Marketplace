@@ -76,10 +76,12 @@
   - [x] Update Back End for View Listing Page: the jinja2 if statement to not show edit or delete buttons to people that aren't logged in.
   - [x] Create Front End jinja if statement for purchase button on view listing page (only show if car isn't owned by the viewer)
   - [x] Create Back End for purchase button (move object to user who purchased)
-  - [ ] Update BUG in Account & Garage page BE to make query start with the user data instead of the car data (reversed) so that user data can still show even if they don't have a car in garage.
   - [ ] Create Validations for all the inputs of creating a listing
   - [ ] Create FE Update Listing page (everything implemented)
   - [ ] Create BE Update listing page (DB is able to be queried to update)
+  - [ ] Update BUG in Account & Garage page BE to make query start with the user data instead of the car data (reversed) so that user data can still show even if they don't have a car in garage.
+  - [ ] Fix the folder setup for static: individual css & js folders with respective files in them.
+  - [ ] Update create listing page transmission input on html from a text type into a selection/option type which will have drop down options of either: empty (will throw a flash error), automatic, or manual type.
 
                         BACKLOG FEATURE'S TODO'S
 
@@ -89,6 +91,7 @@
   - [ ] Add bootstrap hover-shadow effect just created into all buttons and cards
   - [ ] Figure out how to correctly deploy app into github pages (starting on index.html page)
   - [ ] Update Home BackEnd to be able to retrieve/show the mediumBlob images in the DB
+  - [ ] setup sass css or SCSS in the static folder/files
 
 # Product Backlog Features :
   * Users details page displayed to other users wanting to connect/chat
@@ -115,5 +118,5 @@
 
   * AJAX & Django in the future???
 
-### Present these features that work:
+### Presentation features that work:
   * User can purchase/move ownership of car listings and then the "amount of vehicles" number in account details with change accordingly.

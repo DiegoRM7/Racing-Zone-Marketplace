@@ -53,7 +53,6 @@ class Car:
             }
             car.creator = User(user_data)
             all_cars.append(car)
-        # print(f"These are all the car objects:\n{all_cars}") #? to show the objects being populated
         return all_cars
 
     # @classmethod
@@ -66,26 +65,54 @@ class Car:
     #     print(results)
     #     return results
 
-    # @staticmethod
-    # def validate_car(car_form):
-    #     is_valid = True
-    #     if len(car_form['name']) < 1:
-    #         flash("Must enter a name.",'create_car')
-    #         is_valid = False
-    #     if len(car_form['filling']) < 1:
-    #         flash("Must enter the filling of the car.",'create_car')
-    #         is_valid = False
-    #     if len(car_form['crust']) < 1:
-    #         flash("Must enter a crust for the car.",'create_car')
-    #         is_valid = False
-    #     for one_car in car.get_all():
-    #         if str(car_form['name']) == 'current_car_name':
-    #             print(f"\n\nError same name and not updating and validation\n\n")
-    #             break
-    #         elif str(car_form['name']) == one_car.name:
-    #             flash("Error! Name already exists for car. Create a different name.",'create_car')
-    #             is_valid = False
-    #     return is_valid
+    @staticmethod
+    def validate_car_listing(car_form):
+        is_valid = True
+        # for price
+        if len(car_form['price']) < 1:
+            flash("Must enter a price",'create_car_listing(listing_details)')
+            is_valid = False
+        if len(car_form['price']) < 5:
+            flash("Price must be at least 10,000",'create_car_listing(listing_details)')
+            is_valid = False
+        # for title
+        if len(car_form['title']) < 1:
+            flash("Must enter a title for the listing",'create_car_listing(listing_details)')
+            is_valid = False
+        for one_car in Car.get_all():
+            if str(car_form['title']) == one_car.title:
+                print(f"\n\nError same name and not updating and validation\n\n")
+                flash("Title already exists in current listings. Write a different title",'create_car_listing(listing_details)')
+                is_valid = False
+        # for description
+        if len(car_form['description']) < 1:
+            flash("Must enter a description for the listing",'create_car_listing(listing_details)')
+            is_valid = False
+        # for year
+        if len(car_form['year']) < 1:
+            flash("Must enter the year production of the car",'create_car_listing(car_details)')
+            is_valid = False
+        # for make
+        if len(car_form['make']) < 1:
+            flash("Must enter a make brand for the car",'create_car_listing(car_details)')
+            is_valid = False
+        # for model
+        if len(car_form['model']) < 1:
+            flash("Must enter a model for the car",'create_car_listing(car_details)')
+            is_valid = False
+        # for transmission
+        if len(car_form['transmission']) < 1:
+            flash("Must enter a transmission type for the car, either Automatic or Manual",'create_car_listing(car_details)')
+            is_valid = False
+        # for horsepower
+        if len(car_form['horsepower']) < 1:
+            flash("Must enter the horsepower the car possesses",'create_car_listing(car_details)')
+            is_valid = False
+        # for weight
+        if len(car_form['weight']) < 1:
+            flash("Must enter the weight of the car in LBS",'create_car_listing(car_details)')
+            is_valid = False
+        return is_valid
 
     @staticmethod
     def validate_car_deletion_through_url(id):
@@ -97,21 +124,19 @@ class Car:
     
     @classmethod
     def purchase_car_listing(cls, data):
-        # car = Car.get_one_car_by_id_w_user(id)
-        # made a query under this that inputs the id of the user that purchasing^^
-        # that will then tell the query to move the object to that user
         query = """
                 UPDATE cars 
                 SET user_id = %(id_of_buyer)s 
                 WHERE id = %(id_of_car_being_bought)s;
                 """
-                # ! example of possible query to run
-                # ? INSERT INTO persons_table SELECT * FROM customer_table WHERE person_name = 'tom';
-                # ? DELETE FROM customer_table WHERE person_name = 'tom';
-        # later on will make a static method/function here/under to change the amount
-        # of credits of the user lower when they purchase a listing
         return connectToMySQL(cls.DB).query_db(query, data)
 
+    # later on will make a static method/function here/under to change the amount
+    # of credits of the user lower/or higher based on when they purchase a listing, 
+    # sell one, or delete one (return back to broker for stock price).
+        # @staticmethod
+        # def alter_user_credits(id_of_user):
+        #   return user_credits
 
     @classmethod
     def get_all(cls):
@@ -122,8 +147,8 @@ class Car:
             all_cars.append(cls(one_car))
         return all_cars
 
-    @classmethod                           
-    def get_one_car_by_id_w_user(cls, id):      
+    @classmethod
+    def get_one_car_by_id_w_user(cls, id):
         query = """
                 SELECT * FROM cars JOIN users
                 ON cars.user_id = users.id WHERE cars.id = %(id)s;

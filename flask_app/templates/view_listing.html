@@ -25,10 +25,9 @@
                         <p>Price: {{ cars.price }} </p>
                         <p>Title: {{ cars.title }} </p>
                         <p>Description: {{ cars.description }}</p>
-                        <!-- ? Find out backend for purchasing a car, moving the object to be owned by the other user that is buying it, into their garage -->
+
                         {% if cars.user_id != session['int_registered_user'] %}
                         <form action="/listing/purchase" method="post">
-                            <!-- <a class="mt-2 px-5 fw-bold btn btn-success rounded bg-gradient bg-success hover-shadow" href="/listing/view/{{ cars.id }}">Purchase</a> -->
                             <input class="mt-2 px-5 fw-bold btn btn-success rounded bg-gradient bg-success hover-shadow" type="submit" value="Purchase"></input>
                             <input type="hidden" name="id_of_buyer" value=" {{ session['int_registered_user'] }}">
                             <input type="hidden" name="id_of_car_being_bought" value=" {{ cars.id }}">
@@ -46,21 +45,6 @@
                     <a class="mt-2 px-5 fw-bold btn btn-primary rounded bg-gradient bg-primary hover-shadow" href="/listing/view/{{ cars.id }}">Edit</a>
                     <a class="mt-2 px-5 fw-bold btn btn-danger rounded bg-gradient bg-danger hover-shadow" href="/listing/delete/{{ cars.id }}">Delete</a>
                     {% endif %}
-                    <!-- ? going to add this later once i figure out how to set it up in the model
-                        ? to save both the user data and car data at the same time -->
-                    <!-- <h5 class="mt-3 text-center">Seller Contact Details:</h5>
-                    <div class=" input-group-text border-0 bg-transparent text-dark fw-semibold">
-                        <label class="col-6 text-start" for="seller_name">Seller Name: </label>
-                        <input class="form-control rounded-2 ms-2 border-black" id="seller_name" type="text" name="seller_name">
-                    </div>
-                    <div class=" input-group-text border-0 bg-transparent text-dark fw-semibold">
-                        <label class="col-6 text-start" for="phone_number">Phone Number: </label>
-                        <input class="form-control rounded-2 ms-2 border-black" type="text" name="phone_number" id="phone_number">
-                    </div>
-                    <div class=" input-group-text border-0 bg-transparent text-dark fw-semibold">
-                        <label class="col-6 text-start" for="email">Email: </label>
-                        <input class="form-control rounded-2 ms-2 border-black" type="text" name="email" id="email">
-                    </div> -->
                 </div>
             </div>
             <div class="col-md-3">

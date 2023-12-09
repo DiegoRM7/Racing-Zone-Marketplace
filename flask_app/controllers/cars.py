@@ -33,9 +33,9 @@ def create_listing_page():
 
 @app.route('/listing/create/process', methods=["POST"])
 def create_listing_process():
-    # if not Car.validate_pie(request.form):    # ? later on create a validation of all the fields (there's a lot to validate)
-    #     print("---Car could not be created.----\n----Validation gone wrong!----")
-    #     return redirect('/dashboard')
+    if not Car.validate_car_listing(request.form):
+        print("---Car could not be created.----\n----Validation gone wrong!----")
+        return redirect('/listing/create')
     Car.save(request.form)
     print("Car was created!!!!!!!!")
     return redirect('/home')
@@ -47,7 +47,6 @@ def show_one(id):
         return redirect('/login')
     return render_template('view_listing.html', cars = Car.get_one_car_by_id_w_user(id))
 
-# ?? Route that on PURCHASE of car listing will transfer object from one user to another
 @app.route('/listing/purchase', methods=["POST"])
 def purchase_process():
     Car.purchase_car_listing(request.form)
@@ -55,7 +54,7 @@ def purchase_process():
     # another method here that will change the credits of buyer once the transaction/transfer is done.
     return redirect('/account_and_garage')
 
-# ? edit page for one car by using the user's id
+# ? edit page for one car
 # @app.route('/pies/edit/<int:id>')
 # def edit_pie_page(id):
 #     if 'int_registered_user' not in session:
@@ -81,8 +80,8 @@ def purchase_process():
 @app.route('/listing/delete/<int:id>')
 def delete(id):
     if not Car.validate_car_deletion_through_url(id):
-        print(f"\n\nError! Can't delete car listing, its not from your account!!!!!\n\n")       #! set up later to be a flash or modal message
+        print(f"\n\nError! Can't delete car listing, its not from your account!!!!!\n\n")   #! later set up to a flash or modal
         return redirect(f"/account_and_garage")
     Car.delete(id)
-    print(f"\n\nDeleted the listing from your account! It is not listed on the home page anymore!\n\n")       #! set up later to be a flash or modal message
+    print(f"\n\nDeleted the listing from your account! It is not listed on the home page anymore!\n\n")  #! later set up to a flash or modal
     return redirect('/account_and_garage')      # ? flash or modal confirming the listing was deleted
