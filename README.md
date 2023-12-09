@@ -76,7 +76,7 @@
   - [x] Update Back End for View Listing Page: the jinja2 if statement to not show edit or delete buttons to people that aren't logged in.
   - [x] Create Front End jinja if statement for purchase button on view listing page (only show if car isn't owned by the viewer)
   - [x] Create Back End for purchase button (move object to user who purchased)
-  - [ ] Create Validations for all the inputs of creating a listing
+  - [x] Create Validations for all the inputs of creating a listing
   - [ ] Create FE Update Listing page (everything implemented)
   - [ ] Create BE Update listing page (DB is able to be queried to update)
   - [ ] Update BUG in Account & Garage page BE to make query start with the user data instead of the car data (reversed) so that user data can still show even if they don't have a car in garage.
