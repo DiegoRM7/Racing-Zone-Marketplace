@@ -94,6 +94,14 @@ class Car:
         if 'int_registered_user' != car.user_id:
             is_valid = False
         return is_valid
+    
+    # ?? method that on PURCHASE of car listing will transfer object from one user to another
+    @staticmethod
+    def purchase_car_listing(id):
+        car = Car.get_one_car_by_id_w_user(id)
+        # made a query under this that inputs the id of the user that purchasing^^
+        # that will then tell the query to move the object to that user
+        return None
 
     @classmethod
     def get_all(cls):

@@ -40,13 +40,18 @@ def create_listing_process():
     print("Car was created!!!!!!!!")
     return redirect('/home')
 
-# ? Show one car based on user id
 @app.route('/listing/view/<int:id>')
 def show_one(id):
     if 'int_registered_user' not in session:
         User.flash_msg_must_login()
         return redirect('/login')
     return render_template('view_listing.html', cars = Car.get_one_car_by_id_w_user(id))
+
+# ?? Route that on PURCHASE of car listing will transfer object from one user to another
+app.route('/listing/purchase/<int:id>')
+def purchase_process(id):
+    # Car.purchase_car_listing(id)
+    return None
 
 # ? edit page for one car by using the user's id
 # @app.route('/pies/edit/<int:id>')
@@ -71,12 +76,11 @@ def show_one(id):
 #         return redirect(f"/pies/edit/{request.form['id']}")
 #     return redirect('/dashboard')
 
-# ? DELETES CAR DATA based on the car's id
 @app.route('/listing/delete/<int:id>')
 def delete(id):
     if not Car.validate_car_deletion_through_url(id):
         print(f"\n\nError! Can't delete car listing, its not from your account!!!!!\n\n")       #! set up later to be a flash or modal message
         return redirect(f"/account_and_garage")
     Car.delete(id)
-    print(f"\n\nDeleted the listing from your account!!! Good job!!\n\n")       #! set up later to be a flash or modal message
+    print(f"\n\nDeleted the listing from your account! It is not listed on the home page anymore!\n\n")       #! set up later to be a flash or modal message
     return redirect('/account_and_garage')      # ? flash or modal confirming the listing was deleted
