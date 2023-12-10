@@ -19,6 +19,16 @@
         </nav>
         <p class="text-primary-emphasis fw-bolder top-title">Current Credits $100,000</p>
         <div class="row flex-md-wrap">
+            
+            <!-- ? validation if the user tries to create a listing that includes an image file name with bad syntax format -->
+            {% with messages = get_flashed_messages(category_filter=["correct_file_name"]) %}
+            {% if messages %}
+            <div class="p-3 my-1 rounded bg-danger-subtle bg-opacity-75 fw-semibold lh-1 hover-shadow flashes">
+                <p class="pt-1 text-danger-emphasis">{{ messages[0] }}</p>
+            </div>
+            {% endif %}
+            {% endwith %}
+
             <!-- ill add a jinja2 for loop here to repeat the process for the rest of the objects -->
             {% for car in cars %}
             <div class="col-md-3">
