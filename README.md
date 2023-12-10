@@ -78,10 +78,11 @@
   - [x] Create Validations for all the inputs of creating a listing
   - [x] Create FE Update Listing page (everything implemented)
   - [x] Create BE Update listing page (DB is able to be queried to update)
+  - [x] Fix the folder setup for static: individual css & js folders with respective files in them.
+  - [x] Fix the linking path to the javascript and css on all html templates.
   - [ ] Update car back end controller to be able to save,retrieve and then show the image files onto the home page. Reference this youtube video
   https://youtu.be/GQLRVhXnZkE?si=yv3HtOLKAnZzGN5L to get a step by step break down. Includes validations and security.
   - [ ] Update BUG in Account & Garage page BE to make query start with the user data instead of the car data (reversed) so that user data can still show even if they don't have a car in garage.
-  - [ ] Fix the folder setup for static: individual css & js folders with respective files in them.
   - [ ] Update create listing page transmission input on html from a text type into a selection/option type which will have drop down options of either: empty (will throw a flash error), automatic, or manual type.
 
                         BACKLOG FEATURE'S TODO'S

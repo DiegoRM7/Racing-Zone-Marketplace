@@ -28,7 +28,8 @@ def create_listing_page():
     if 'int_registered_user' not in session:
         User.flash_msg_must_login()
         return redirect('/login')
-    session.pop('current_car_title')
+    if session.get('current_car_title') != None:
+        session.pop('current_car_title')
     return render_template("create_listing.html")
 
 @app.route('/listing/create/process', methods=["POST"])
