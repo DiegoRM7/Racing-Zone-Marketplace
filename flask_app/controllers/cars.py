@@ -2,6 +2,7 @@ from flask_app import app
 from flask import render_template, redirect, request, session, flash
 from flask_app.models.car import Car
 from flask_app.models.user import User
+from werkzeug.utils import secure_filename
 
 @app.route('/home')
 def home_page_all_listings():
@@ -39,6 +40,11 @@ def create_listing_process():
         return redirect('/listing/create')
     Car.save(request.form)
     print("Car was created!!!!!!!!")
+
+    # ? Uploading to the static/images folder as a file with the name being the image_path name.
+    file = request.files['image_path']
+    file.save(f"flask_app\static\images\{file.filename}")
+
     return redirect('/home')
 
 @app.route('/listing/view/<int:id>')
