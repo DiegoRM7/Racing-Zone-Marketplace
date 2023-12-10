@@ -42,7 +42,7 @@
                         <img src="https://cdn-icons-png.flaticon.com/128/3085/3085411.png" alt="car image placeholder" id="selectedImage" class="w-75 text-black mt-3 show-listing-image border">
                     </div>
                     {% if cars.user_id == session['int_registered_user'] %}
-                    <a class="mt-2 px-5 fw-bold btn btn-primary rounded bg-gradient bg-primary hover-shadow" href="/listing/view/{{ cars.id }}">Edit</a>
+                    <a class="mt-2 px-5 fw-bold btn btn-primary rounded bg-gradient bg-primary hover-shadow" href="/listing/edit/{{ cars.id }}">Edit</a>
                     <a class="mt-2 px-5 fw-bold btn btn-danger rounded bg-gradient bg-danger hover-shadow" href="/listing/delete/{{ cars.id }}">Delete</a>
                     {% endif %}
                 </div>

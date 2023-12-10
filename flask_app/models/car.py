@@ -1,6 +1,6 @@
 from flask_app.config.mysqlconnection import connectToMySQL
 from flask_app.models.user import User
-from flask import flash
+from flask import flash, session
 
 class Car:
     DB = "racing-zone_schema"
@@ -55,15 +55,17 @@ class Car:
             all_cars.append(car)
         return all_cars
 
-    # @classmethod
-    # def update(cls, data):
-    #     query = """
-    #             UPDATE cars SET name = %(name)s, filling = %(filling)s, crust = %(crust)s, id = %(id)s, user_id = %(user_id)s
-    #             WHERE id = %(id)s;
-    #         """
-    #     results = connectToMySQL(cls.DB).query_db(query, data)
-    #     print(results)
-    #     return results
+    @classmethod
+    def update(cls, data):
+        query = """
+                UPDATE cars
+                SET year = %(year)s, make = %(make)s, model = %(model)s, transmission = %(transmission)s, horsepower = %(horsepower)s,
+                weight = %(weight)s, image_path = %(image_path)s, price = %(price)s, title = %(title)s, description = %(description)s
+                WHERE id = %(id)s;
+            """
+        results = connectToMySQL(cls.DB).query_db(query, data)
+        print(results)
+        return results
 
     @staticmethod
     def validate_car_listing(car_form):
@@ -80,7 +82,10 @@ class Car:
             flash("Must enter a title for the listing",'create_car_listing(listing_details)')
             is_valid = False
         for one_car in Car.get_all():
+            # checking to see if I have a current session of current car when updating a car and if i do then skip that title check, let it pass.
+            # if its a new entry listing then the session won't exist so it will still be looking for all car titles.
             if str(car_form['title']) == one_car.title:
+                if str(car_form['title']) == session['current_car_title']: continue
                 print(f"\n\nError same name and not updating and validation\n\n")
                 flash("Title already exists in current listings. Write a different title",'create_car_listing(listing_details)')
                 is_valid = False
@@ -154,7 +159,6 @@ class Car:
                 ON cars.user_id = users.id WHERE cars.id = %(id)s;
                 """
         results = connectToMySQL(cls.DB).query_db(query, {"id": id})
-        print(results[0])
         car = cls(results[0])
         user_data = {
             "id":["users.id"],
@@ -199,5 +203,5 @@ class Car:
                 }
             car.creator = User(user_data)
             all_cars_from_one_user.append(car)
-        print(f"These are all the car objects:\n{all_cars_from_one_user}")
+        print(f"These are all the car listing objects in this user's garage:\n{all_cars_from_one_user}")
         return all_cars_from_one_user

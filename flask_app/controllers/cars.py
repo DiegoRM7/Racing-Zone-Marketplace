@@ -29,12 +29,13 @@ def create_listing_page():
     if 'int_registered_user' not in session:
         User.flash_msg_must_login()
         return redirect('/login')
+    session.pop('current_car_title')
     return render_template("create_listing.html")
 
 @app.route('/listing/create/process', methods=["POST"])
 def create_listing_process():
     if not Car.validate_car_listing(request.form):
-        print("---Car could not be created.----\n----Validation gone wrong!----")
+        print("---Car listing could not be created.----\n----Validation gone wrong!----")
         return redirect('/listing/create')
     Car.save(request.form)
     print("Car was created!!!!!!!!")
@@ -54,28 +55,24 @@ def purchase_process():
     # another method here that will change the credits of buyer once the transaction/transfer is done.
     return redirect('/account_and_garage')
 
-# ? edit page for one car
-# @app.route('/pies/edit/<int:id>')
-# def edit_pie_page(id):
-#     if 'int_registered_user' not in session:
-#         User.flash_msg_must_login()
-#         return redirect('/')
-#     pie = Pie.get_one_pie_by_id_w_user(id)
-#     session['current_pie_id'] = pie.id
-#     session['current_pie_name'] = pie.name
-#     return render_template('edit_pie.html', pie = pie)
+@app.route('/listing/edit/<int:id>')
+def edit_listing_page(id):
+    if 'int_registered_user' not in session:
+        User.flash_msg_must_login()
+        return redirect('/login')
+    car = Car.get_one_car_by_id_w_user(id)
+    session['current_car_title'] = car.title
+    return render_template('edit_listing.html', car = car)
 
-# ? post method route to process UPDATE CAR DATA and validate it
-# @app.route('/pies/update', methods=["POST"])
-# def update_pie():
-#     if session["current_pie_name"] == request.form['name']:
-#         Pie.update(request.form)
-#     print("------------Pie was UPDATED !!!!!!!!-------------")
-#     return redirect('/dashboard')
-#     if not Pie.validate_pie(request.form):
-#         print(f'\n\n{session["current_pie_name"]}\n\n')
-#         return redirect(f"/pies/edit/{request.form['id']}")
-#     return redirect('/dashboard')
+@app.route('/listing/edit/process', methods=["POST"])
+def update_car():
+    if not Car.validate_car_listing(request.form):
+        print("---Car listing could not be updated.----\n----Validation gone wrong!----")
+        return redirect(f"/listing/edit/{request.form['id']}")
+    Car.update(request.form)
+    # session.pop('current_car_title')
+    print("------------CAR LISTING UPDATED SUCCESSFULLY!-------------")
+    return redirect('/account_and_garage')
 
 @app.route('/listing/delete/<int:id>')
 def delete(id):

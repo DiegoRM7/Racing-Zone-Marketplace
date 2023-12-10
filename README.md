@@ -87,10 +87,11 @@
                         BACKLOG FEATURE'S TODO'S
 
   - [ ] Create Back End FEATURE for purchase button (alter user's credit amount based on purchase price of car listing)
+  - [ ] set up CSS hover feature to not only be set for the class hover-shadow but recreate it to be applied smaller shadows into all tags that include the class btn so that all btn's have a pre-built small shadow on them. Then remove the bootstrap shadow class on btn's, or apply the small shadow on top of the pre-existing bootstrap class "shadow".
   - [ ] Create FE Page for Editing User Profile Data (accessed by the acc/garage page button)
   - [ ] Update FE of Home page to have jinja format the price text to include $$$ sign and comas ,,, after 3 digits
   - [x] Add bootstrap hover-shadow effect just created into all buttons and cards
-  - [ ] Figure out how to correctly deploy app into github pages using docker or gnix(delete the index.html page)
+  - [ ] Figure out how to correctly deploy app into github pages using docker or other deployer(delete the index.html page)
   - [ ] setup sass css or SCSS in the static folder/files
 
 # Product Backlog Features :
