@@ -78,6 +78,8 @@
   - [x] Create Validations for all the inputs of creating a listing
   - [ ] Create FE Update Listing page (everything implemented)
   - [ ] Create BE Update listing page (DB is able to be queried to update)
+  - [ ] Update car back end controller to be able to save,retrieve and then show the image files onto the home page. Reference this youtube video
+  https://youtu.be/GQLRVhXnZkE?si=yv3HtOLKAnZzGN5L to get a step by step break down. Includes validations and security.
   - [ ] Update BUG in Account & Garage page BE to make query start with the user data instead of the car data (reversed) so that user data can still show even if they don't have a car in garage.
   - [ ] Fix the folder setup for static: individual css & js folders with respective files in them.
   - [ ] Update create listing page transmission input on html from a text type into a selection/option type which will have drop down options of either: empty (will throw a flash error), automatic, or manual type.
@@ -87,9 +89,8 @@
   - [ ] Create Back End FEATURE for purchase button (alter user's credit amount based on purchase price of car listing)
   - [ ] Create FE Page for Editing User Profile Data (accessed by the acc/garage page button)
   - [ ] Update FE of Home page to have jinja format the price text to include $$$ sign and comas ,,, after 3 digits
-  - [ ] Add bootstrap hover-shadow effect just created into all buttons and cards
-  - [ ] Figure out how to correctly deploy app into github pages (starting on index.html page)
-  - [ ] Update Home BackEnd to be able to retrieve/show the mediumBlob images in the DB
+  - [x] Add bootstrap hover-shadow effect just created into all buttons and cards
+  - [ ] Figure out how to correctly deploy app into github pages using docker or gnix(delete the index.html page)
   - [ ] setup sass css or SCSS in the static folder/files
 
 # Product Backlog Features :
