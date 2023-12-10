@@ -76,8 +76,8 @@
   - [x] Create Front End jinja if statement for purchase button on view listing page (only show if car isn't owned by the viewer)
   - [x] Create Back End for purchase button (move object to user who purchased)
   - [x] Create Validations for all the inputs of creating a listing
-  - [ ] Create FE Update Listing page (everything implemented)
-  - [ ] Create BE Update listing page (DB is able to be queried to update)
+  - [x] Create FE Update Listing page (everything implemented)
+  - [x] Create BE Update listing page (DB is able to be queried to update)
   - [ ] Update car back end controller to be able to save,retrieve and then show the image files onto the home page. Reference this youtube video
   https://youtu.be/GQLRVhXnZkE?si=yv3HtOLKAnZzGN5L to get a step by step break down. Includes validations and security.
   - [ ] Update BUG in Account & Garage page BE to make query start with the user data instead of the car data (reversed) so that user data can still show even if they don't have a car in garage.
@@ -91,7 +91,7 @@
   - [ ] Create FE Page for Editing User Profile Data (accessed by the acc/garage page button)
   - [ ] Update FE of Home page to have jinja format the price text to include $$$ sign and comas ,,, after 3 digits
   - [x] Add bootstrap hover-shadow effect just created into all buttons and cards
-  - [ ] Figure out how to correctly deploy app into github pages using docker or other deployer(delete the index.html page)
+  - [ ] Figure out how to correctly deploy app into github pages using docker or other deployer(delete the index.html page)(i have a reference video saved on my YT history of examples of this for docker and the other software)
   - [ ] setup sass css or SCSS in the static folder/files
 
 # Product Backlog Features :

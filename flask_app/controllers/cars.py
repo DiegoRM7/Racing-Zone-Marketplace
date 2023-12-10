@@ -18,7 +18,6 @@ def account_and_garage_details():
         User.flash_msg_must_login()
         return redirect('/login')
     all_cars_of_user = Car.get_all_cars_one_user(session['int_registered_user'])
-    # find amount of cars in current users garage
     car_counter = 0
     for i in all_cars_of_user:
         car_counter += 1
@@ -70,7 +69,6 @@ def update_car():
         print("---Car listing could not be updated.----\n----Validation gone wrong!----")
         return redirect(f"/listing/edit/{request.form['id']}")
     Car.update(request.form)
-    # session.pop('current_car_title')
     print("------------CAR LISTING UPDATED SUCCESSFULLY!-------------")
     return redirect('/account_and_garage')
 
