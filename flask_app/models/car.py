@@ -1,6 +1,6 @@
 from flask_app.config.mysqlconnection import connectToMySQL
 from flask_app.models.user import User
-from flask import flash, session
+from flask import flash, session, request
 
 class Car:
     DB = "racing-zone_schema"
@@ -25,8 +25,8 @@ class Car:
     def save(cls, data):
         query = """
                 INSERT INTO cars (user_id, year, make, model, transmission, horsepower, weight, image_path, price, title, description)
-                VALUES (%(user_id)s, %(year)s, %(make)s, %(model)s, %(transmission)s, %(horsepower)s, %(weight)s, %(image_path)s,
-                        %(price)s, %(title)s, %(description)s);
+                VALUES (%(user_id)s, %(year)s, %(make)s, %(model)s, %(transmission)s, %(horsepower)s, %(weight)s, %(image_path)s, 
+                %(price)s, %(title)s, %(description)s);
                 """
         return connectToMySQL(cls.DB).query_db(query, data)
 
@@ -89,6 +89,12 @@ class Car:
                 print(f"\n\nError same name and not updating and validation\n\n")
                 flash("Title already exists in current listings. Write a different title",'create_car_listing(listing_details)')
                 is_valid = False
+        # for image_path file/string/varchar
+        # ???? SOMETHING IS WRONG WITH THIS VALIDATION ON CHECKING IF THE FILE EXISTS OR NOT.
+        # ?? ITS SAYING IT ALWAYS DOESN'T EVEN WHEN A FILE IS SUBMITTED
+        if request.files["image_path"] not in request.files:
+            flash("Must upload an image file.",'create_car_listing(no_image)')
+            is_valid = False
         # for description
         if len(car_form['description']) < 1:
             flash("Must enter a description for the listing",'create_car_listing(listing_details)')

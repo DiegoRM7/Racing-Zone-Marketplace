@@ -3,6 +3,7 @@ from flask import render_template, redirect, request, session, flash
 from flask_app.models.car import Car
 from flask_app.models.user import User
 from werkzeug.utils import secure_filename
+import os
 
 @app.route('/home')
 def home_page_all_listings():
@@ -38,21 +39,19 @@ def create_listing_process():
     if not Car.validate_car_listing(request.form):
         print("---Car listing could not be created.----\n----Validation gone wrong!----")
         return redirect('/listing/create')
-    Car.save(request.form)
-    print("Car was created!!!!!!!!")
-
-    # ? Uploading to the static/images folder as a file with the name being the image_path name.
+    # ? FOR NOW IT IS NOT COMPLETING THE VALIDATION SECTION BECAUSE ITS GETTING THROWN A FALSE RETURN ALWAYS.
     file = request.files['image_path']
+    Car.save(request.form)
+    print(request.form)
+    print("Car was created!!!!!!!!")
+    # ? Uploading to the static/images folder as a file with the name being the image_path name.
     if file:
         for i in file.filename:
             if i == " ":
                 flash("Car listing could not be created.\nMust enter a file name with correct syntax: replaces spaces with underscores '_'",'correct_file_name')
                 return redirect('/home')
-            else:
-                file.save(f"flask_app/static/images/{secure_filename(file.filename)}")
-                print('image was saved in static/images folder!')
-    return redirect('/home')
-
+        file.save(os.path.join('flask_app/static/images/', secure_filename(file.filename)))
+        print('image was saved in static/images folder!')
     return redirect('/home')
 
 @app.route('/listing/view/<int:id>')
