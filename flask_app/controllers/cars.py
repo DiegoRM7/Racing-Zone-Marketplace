@@ -43,11 +43,15 @@ def create_listing_process():
 
     # ? Uploading to the static/images folder as a file with the name being the image_path name.
     file = request.files['image_path']
-    for i in file.filename:
-        if i == " ":
-            flash("Car listing could not be created.\nMust enter a file name with correct syntax: replaces spaces with underscores '_'",'correct_file_name')
-    else:
-        file.save(f"flask_app\static\images\{secure_filename(file.filename)}")
+    if file:
+        for i in file.filename:
+            if i == " ":
+                flash("Car listing could not be created.\nMust enter a file name with correct syntax: replaces spaces with underscores '_'",'correct_file_name')
+                return redirect('/home')
+            else:
+                file.save(f"flask_app/static/images/{secure_filename(file.filename)}")
+                print('image was saved in static/images folder!')
+    return redirect('/home')
 
     return redirect('/home')
 
