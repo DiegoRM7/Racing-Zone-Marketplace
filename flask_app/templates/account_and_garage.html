@@ -26,7 +26,11 @@
                     {% for user_cars in all_cars_of_user %}
                     <div class="col">
                         <div class="p-2 mb-1 card bg-opacity-75 bg-light hover-shadow border-dark-subtle border">
-                            <img src="{{ user_cars.image_path }}" alt="{{ user_cars.image_path }}" class="card-img-top bg-danger text-center">
+                            {% for image in image_files %}
+                            {% if image == user_cars.image_path %}
+                            <img src="{{ url_for('serve_image',filename=image) }}" alt="{{ user_cars.image_path }}" class="card-img-top bg-danger text-center">
+                            {% endif %}
+                        {% endfor %}
                             <div class="card-body">
                                 <h5 class="mt-1">{{ user_cars.price }}</h5>
                                 <h5 class="mt-1">{{ user_cars.make }} {{ user_cars.model }}</h5>

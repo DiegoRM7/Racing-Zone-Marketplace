@@ -81,7 +81,7 @@
   - [x] Fix the folder setup for static: individual css & js folders with respective files in them.
   - [x] Fix the linking path to the javascript and css on all html templates.
   - [x] Update car back end controller to be able to save image files. Reference this youtube video https://youtu.be/GQLRVhXnZkE?si=yv3HtOLKAnZzGN5L to get a step by step break down. Includes validations and security.
-  - [ ] Update car BE controller to retrieve and then show the image files onto the home page.
+  - [x] Update car BE controller to retrieve and then show the image files onto the home page.
   - [ ] Update BUG in Account & Garage page BE to make query start with the user data instead of the car data (reversed) so that user data can still show even if they don't have a car in garage.
   - [ ] Update create listing page transmission input on html from a text type into a selection/option type which will have drop down options of either: empty (will throw a flash error), automatic, or manual type.
 
