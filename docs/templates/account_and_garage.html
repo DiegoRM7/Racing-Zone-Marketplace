@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Racing Zone Marketplace: Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container mx-auto my-auto px-5 pb-3 pt-3">
+        <nav class="nav-bar row align-items-center mb-4">
+            <h1 class="col-6 text-start fw-semibold top-title">{{ all_cars_of_user[0].creator.first_name }}'s Garage & Account</h1>
+            <div class="col-6 d-md-inline-flex justify-content-end">
+                    <a href="/home" class="btn btn-outline-dark rounded-0 hover-shadow bg-white text-black fw-bold px-3">Home</a>
+                    <a href="/listing/create" class="btn btn-outline-dark rounded-0 hover-shadow bg-white text-black fw-bold px-3">Create Listing</a>
+                    <a href="/account_&_garage" class="btn btn-outline-dark rounded-0 hover-shadow bg-primary-subtle text-black fw-bold px-3 active">Account & Garage</a>
+            </div>
+        </nav>
+        <p class="text-primary-emphasis fw-bolder top-title">Current Credits $100,000</p>
+        <div class="row">
+            <!-- This will be the container for the carousel to be half the page -->
+            <div class="col-md-6">
+                <!-- ill add a jinja2 for loop here to repeat the process for the rest of the objects -->
+                <div class="row row-cols-md-2 overflow-scroll border border-1 shadow p-3 border-dark-subtle">
+                    {% for user_cars in all_cars_of_user %}
+                    <div class="col">
+                        <div class="p-2 mb-1 card bg-opacity-75 bg-light hover-shadow border-dark-subtle border">
+                            {% for image in image_files %}
+                            {% if image == user_cars.image_path %}
+                            <img src="{{ url_for('serve_image',filename=image) }}" alt="{{ user_cars.image_path }}" class="card-img-top bg-danger text-center">
+                            {% endif %}
+                        {% endfor %}
+                            <div class="card-body">
+                                <h5 class="mt-1">{{ user_cars.price }}</h5>
+                                <h5 class="mt-1">{{ user_cars.make }} {{ user_cars.model }}</h5>
+                                <p class="mt-2 card-text">
+                                    {{ user_cars.description }}
+                                </p>
+                            </div>
+                            <a class="mt-2 px-5 fw-bold card-footer btn bg-gradient btn-success bg-success hover-shadow rounded" href="/listing/view/{{ user_cars.id }}">View</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <!-- This will be the other half COLUMN of the page containing the account details and data -->
+            <div class="col-md-6">
+                <!-- container for other half page -->
+                <div class="p-3 mb-3 bg-opacity-75 bg-light shadow border-dark-subtle border">
+                    <h3 class="top-title mb-4 text-center">Account Details:</h3>
+                    <div class="ms-3">
+                        <p>Name: {{ all_cars_of_user[0].creator.first_name }} {{ all_cars_of_user[0].creator.last_name }}</p>
+                        <p>Email: {{ all_cars_of_user[0].creator.email }}</p>
+                        <p>Phone Number: {{ all_cars_of_user[0].creator.phone_number }}</p>
+                        <p>Password: *************************</p>
+                        <p>Amount of Vehicles: {{ car_counter }}</p>
+                        <p>Current Amount of credits: {{ all_cars_of_user[0].price }}</p>
+                    </div>
+                    <a class="mt-2 px-5 fw-bold btn btn-primary rounded bg-gradient bg-primary hover-shadow" href="/account_and_garage">Edit</a>
+                    <a class="mt-2 px-5 fw-bold btn btn-warning rounded bg-gradient bg-warning hover-shadow" href="/logout">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

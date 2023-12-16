@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Racing Zone Marketplace: Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container mx-auto my-auto px-5 pb-3 pt-3">
+        <nav class="nav-bar row align-items-center mb-4">
+            <h1 class="col-6 text-start fw-bold top-title">Listing Details!</h1>
+            <div class="col-6 nav-pills d-md-inline-flex justify-content-end">
+                <a href="/home" class="btn btn-outline-dark rounded-0 hover-shadow bg-white text-black fw-bold px-3">Home</a>
+                <a href="/listing/create" class="btn btn-outline-dark rounded-0 hover-shadow bg-white text-black fw-bold px-3">Create Listing</a>
+                <a href="/account_and_garage" class="btn btn-outline-dark rounded-0 hover-shadow bg-white text-black fw-bold px-3">Account & Garage</a>
+            </div>
+        </nav>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="p-3 bg-opacity-75 bg-light border-1 border-dark-subtle border shadow">
+                    <h3 class="h3 text-center">Listing Details:</h3>
+                    <div class="my-3 fw-semibold">
+                        <p>Price: {{ cars.price }} </p>
+                        <p>Title: {{ cars.title }} </p>
+                        <p>Description: {{ cars.description }}</p>
+
+                        {% if cars.user_id != session['int_registered_user'] %}
+                        <form action="/listing/purchase" method="post">
+                            <input class="mt-2 px-5 fw-bold btn btn-success rounded bg-gradient bg-success hover-shadow" type="submit" value="Purchase"></input>
+                            <input type="hidden" name="id_of_buyer" value=" {{ session['int_registered_user'] }}">
+                            <input type="hidden" name="id_of_car_being_bought" value=" {{ cars.id }}">
+                        </form>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-2 bg-opacity-75 bg-light border-1 border-dark-subtle border shadow">
+                    <div class="text-center justify-content-center row">
+                        {% for image in image_files %}
+                        {% if image == cars.image_path %}
+                        <img src="{{ url_for('serve_image',filename=image) }}" alt="{{ cars.image_path }}" class="card-img-top text-center">
+                        {% endif %}
+                    {% endfor %}                    </div>
+                    {% if cars.user_id == session['int_registered_user'] %}
+                    <a class="mt-2 px-5 fw-bold btn btn-primary rounded bg-gradient bg-primary hover-shadow" href="/listing/edit/{{ cars.id }}">Edit</a>
+                    <a class="mt-2 px-5 fw-bold btn btn-danger rounded bg-gradient bg-danger hover-shadow" href="/listing/delete/{{ cars.id }}">Delete</a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-3 bg-opacity-75 bg-light border-1 border-dark-subtle border shadow">
+                    <h3 class="h3 text-center">Car Details:</h3>
+                    <div class="my-3 fw-semibold">
+                        <p>Year: {{ cars.year }} </p>
+                        <p>Make: {{ cars.make }} </p>
+                        <p>Model: {{ cars.model }}</p>
+                        <p>Transmission: {{ cars.transmission }}</p>
+                        <p>Horsepower: {{ cars.horsepower }} HP</p>
+                        <p>Weight: {{ cars.weight }} LBS</p>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="/static/script.js"></script>
+</html>
