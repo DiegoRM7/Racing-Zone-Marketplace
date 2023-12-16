@@ -13,7 +13,7 @@ class Car:
         self.transmission = data['transmission']
         self.horsepower = data['horsepower']
         self.weight = data['weight']
-        self.image_path = data.get('image_path', None)
+        self.image_path = data['image_path']
         self.price = data['price']
         self.title = data['title']
         self.description = data['description']
@@ -92,9 +92,9 @@ class Car:
         # for image_path file/string/varchar
         # ???? SOMETHING IS WRONG WITH THIS VALIDATION ON CHECKING IF THE FILE EXISTS OR NOT.
         # ?? ITS SAYING IT ALWAYS DOESN'T EVEN WHEN A FILE IS SUBMITTED
-        if request.files["image_path"] not in request.files:
-            flash("Must upload an image file.",'create_car_listing(no_image)')
-            is_valid = False
+        # if request.files(file) == "...":
+        #     flash("Must upload an image file.",'create_car_listing(no_image)')
+        #     is_valid = False
         # for description
         if len(car_form['description']) < 1:
             flash("Must enter a description for the listing",'create_car_listing(listing_details)')
@@ -129,7 +129,7 @@ class Car:
     def validate_car_deletion_through_url(id):
         is_valid = True
         car = Car.get_one_car_by_id_w_user(id)
-        if 'int_registered_user' != car.user_id:
+        if (session['int_registered_user']) != car.user_id:
             is_valid = False
         return is_valid
     

@@ -12,3 +12,12 @@ function displaySelectedImage(event, elementId) {
         reader.readAsDataURL(fileInput.files[0]);
     }
 }
+
+function myChangeFunction(event, image_file) {
+    var imagePath = document.getElementById('image_path');
+    console.log(image_file.value);
+    text = image_file.value.replace("C:\\fakepath\\", '');
+    console.log(text);
+    imagePath.value = text;
+    console.log(imagePath.value);
+}
