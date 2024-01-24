@@ -1,14 +1,35 @@
+import os
 import pymysql.cursors
+from urllib.parse import urlparse
+
 class MySQLConnection:
     def __init__(self, db):
-        connection = pymysql.connect(host = 'localhost',
-                                    user = 'root', # change the user and password as needed
-                                    password = 'root', 
-                                    db = db,
-                                    charset = 'utf8mb4',
-                                    cursorclass = pymysql.cursors.DictCursor,
-                                    autocommit = True)
+        if 'CLEARDB_DATABASE_URL' in os.environ:
+            # Use ClearDB MySQL on Heroku
+            url = urlparse(os.environ['CLEARDB_DATABASE_URL'])
+            connection = pymysql.connect(
+                host=url.hostname,
+                user=url.username,
+                password=url.password,
+                db=url.path[1:],
+                charset='utf8mb4',
+                cursorclass=pymysql.cursors.DictCursor,
+                autocommit=True
+            )
+        else:
+            # Local development configuration
+            connection = pymysql.connect(
+                host='localhost',
+                user='root',  # Change the user and password as needed
+                password='root',
+                db=db,
+                charset='utf8mb4',
+                cursorclass=pymysql.cursors.DictCursor,
+                autocommit=True
+            )
+
         self.connection = connection
+
     def query_db(self, query, data=None):
         with self.connection.cursor() as cursor:
             try:
@@ -35,8 +56,8 @@ class MySQLConnection:
                 return False
             finally:
                 # close the connection
-                self.connection.close() 
-# this connectToMySQL function creates an instance of MySQLConnection, which will be used by server.py
-# connectToMySQL receives the database we're using and uses it to create an instance of MySQLConnection
+                self.connection.close()
+
+# connectToMySQL function creates an instance of MySQLConnection
 def connectToMySQL(db):
     return MySQLConnection(db)
